@@ -183,7 +183,6 @@ export const asyncRouterMap = [
           {
             path: '/system/developer/options',
             name: 'DeveloperOptions',
-            hidden: true,
             component: () => import('@/views/system/developer/DeveloperOptions'),
             meta: { title: '开发者选项', hiddenHeaderContent: false }
           },
@@ -204,7 +203,28 @@ export const asyncRouterMap = [
             name: 'About',
             component: () => import('@/views/system/About'),
             meta: { title: '关于', hiddenHeaderContent: false }
-          }
+          },
+					{
+					  path: '/system/settings',
+					  name: 'Settings',
+					  component: BlankLayout,
+						redirect: '/system/addFunc',
+					  meta: { title: '配置', icon: 'setting'},
+						children: [
+						  {
+						    path: '/system/addFunc',
+						    name: 'AddFunc',
+						    component: () => import('@/views/system/addFunc'),
+						    meta: { title: '新建功能', hiddenHeaderContent: false }
+						  },
+							{
+							  path: '/system/editFunc',
+							  name: 'EditFunc',
+							  component: () => import('@/views/system/editFunc'),
+							  meta: { title: '修改功能', hiddenHeaderContent: false }
+							}
+						]
+					}
         ]
       }
     ]
